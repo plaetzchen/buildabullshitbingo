@@ -48,6 +48,17 @@ function stripslashes_deep($value) {
 $daten = preg_split("/[\r\n]+/", $_REQUEST['daten'], -1, PREG_SPLIT_NO_EMPTY);
 $daten = array_map('prep_data', $daten);
 
+if(count($daten) < $field_size * $field_size) {
+	echo "F&uuml;r ein Bingofeld werden mindestens "
+		. ($field_size * $field_size)
+		. " Begriffe gebraucht. Du hast "
+		. count($daten)
+		. " Begriffe eingegeben. Der Rest der Felder bleibt leer";
+	do {
+		$daten[] = "";
+	} while(count($daten) < $field_size * $field_size);
+}
+
 $pages = intval($_REQUEST['pages']);
 
 for($d=0; $d < $pages; $d++) { 
