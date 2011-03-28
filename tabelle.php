@@ -45,7 +45,7 @@ function stripslashes_deep($value) {
 
 // ----------------------------------- Main -----------------------------------
 
-$daten = preg_split("/[\r\n]+/", $_REQUEST['daten'], -1, PREG_SPLIT_NO_EMPTY);
+$daten = preg_split("/\\s*?[\r\n]+\\s*/", $_REQUEST['daten'], -1, PREG_SPLIT_NO_EMPTY);
 $daten = array_map('prep_data', $daten);
 
 if(count($daten) < $field_size * $field_size) {
