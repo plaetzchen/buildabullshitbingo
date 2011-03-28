@@ -17,7 +17,14 @@ $field_size = 5;
 // --------------------------- User Input Functions ---------------------------
 
 function prep_data($input) {
-	return htmlentities(strip_magic($input));
+	$tmp = strip_magic($input);
+	$tmp = htmlentities($tmp);
+	$tmp = preg_replace(
+		Array('/_tm/', '/\\(c\\)/'),
+		Array('<sup>tm</sup>', '&copy;'),
+		$tmp
+		);
+	return $tmp;
 }
 
 function strip_magic($input) {
