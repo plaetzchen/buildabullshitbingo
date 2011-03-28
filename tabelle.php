@@ -12,7 +12,14 @@
 <?php 
 // ---------------------------------- Config ----------------------------------
 
+// How many cells per line and column?
 $field_size = 5;
+
+// Width and height of a whole bingo field
+$field_dim = $field_size * 125;
+
+// Width and height of a single cell
+$cell_dim = intval(100 / $field_size).'%';
 
 // --------------------------- User Input Functions ---------------------------
 
@@ -67,12 +74,17 @@ for($d=0; $d < $pages; $d++) {
 	if($d != 0) {
 		echo "<p style='page-break-before:always'>";
 	}
-	echo "<table border='1' align='center'>";
+	echo "<table"
+		." border='1'"
+		." align='center'"
+		." width='".$field_dim."'"
+		." height='".$field_dim."'"
+		.">";
 	
 	for($i=0; $i < $field_size; $i++) { 
-		echo "<tr height='100'>";
+		echo "<tr height='".$cell_dim."'>";
 		for($j = 0; $j < $field_size; $j++) { 
-			echo "<td width='100' align='center'>";
+			echo "<td width='".$cell_dim."' align='center'>";
 			echo $daten[$i * $field_size + $j];
 			echo "</td>";
 		}
