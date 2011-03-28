@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-15">
-	<title></title>
+	<title>Bullshitbingo</title>
 	<!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/> -->
 	<!-- <link rel="stylesheet" type="text/css" href=".css"/> -->
 </head>
